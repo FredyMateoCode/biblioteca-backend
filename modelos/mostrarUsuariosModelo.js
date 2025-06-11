@@ -6,7 +6,7 @@ con la finalidad de obtener todos los datos de la base datos y mostrarlos, en ca
 tambien nos mostrara*/
 const obtenerUsuarios = (callback) => {
 	//Creamos la consulta dentro de una CONSTANTE el cual contenga todos los usuarios de la tabla usuarios.
-	const consulta = 'SELECT * FROM usuarios where dni_us = 47576696';
+	const consulta = 'SELECT * FROM usuarios';
 	/*
 	• Ejecutamos la consulta y hacemos un callback:
 	• El callback maneja los errores y los resultados mediante dos parametros.
