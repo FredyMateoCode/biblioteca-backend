@@ -1,29 +1,35 @@
 // 1. IMPRTACIÓN DE LAS DEPENDENCIAS DENTRO DE CONSTANTES PARA EL USO POSTERIOR:
 // (SERVIDOR) = Línea de código exclusivo para la configuración del SERVIDOR.
 require ('dotenv').config();//Hacemos accecible las bariables de entorno ubicadas en .env (SERVIDOR).
-require('./configuracion/conexion'); // solo para probar la conexión al arrancar el servidor.
+require('./configuracion/conexion'); // solo para probar la conexión al arrancar el servidor.//(DATOS)
 const express = require ('express'); //Para crear el servidor backend (SERVIDOR).
 const app = express(); //Instancia para que el servidor maneje rutas y peticiones HTTP (SERVIDOR).
 const PORT = process.env.PORT || 4000; // Utilizará el puerto asignado por render ó el puerto local 5000 (SERVIDOR).
+const cors = require('cors'); // Importa el paquete 'cors'
 
-/*Importación de rutas comprobadas para servir - Inicio*/
-
-/*Importación de rutas comprobadas para servir - Fin*/
-
-
-/* Rutas servidas - Inicio*/
-
-/* Rutas Servidas - Fin*/
-
-
+// Habilita CORS para todas las solicitudes
+app.use(cors());
 
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - INICIO---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-const mostrarUsuariosRuta = require ('./rutas/mostrarUsuariosRuta.js');//Importamos la ruta dentro de una constante.
+
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - FIN <<<<<<<<<<<<<<<<<<<<<-----------------*/
 
 
+/*Importación de rutas comprobadas para servir - Inicio*/
+//Importamos la ruta dentro de una constante.
+const mostrarUsuariosRuta = require ('./rutas/mostrarUsuariosRuta.js');//(DATOS)
+/*Importación de rutas comprobadas para servir - Fin*/
+
+
+/* Rutas servidas Comprobadas- Inicio*/
+app.use('/mostrarUsuarios', mostrarUsuariosRuta); //localhost:4000/mostrarUsuarios/usuariosBiblioteca-(DATOS)
+/* Rutas Servidas Comprobadas - Fin*/
+
+
+
+
+
 /*------ INICIO SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS ------------------------------------->>>>>>>>>>>>>>*/
-app.use('/mostrarUsuarios', mostrarUsuariosRuta);
 /*------ FIN SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS <<<<<<<<<<<<<<<---------------------------------------*/
 
 
