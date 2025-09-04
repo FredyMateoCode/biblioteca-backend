@@ -1,18 +1,16 @@
 /*Creamos la ruta para mostrar los datos obtenidmos mediante la consulta del modelo, de forma modularizada.
 • Primermo importamos express para usar y gestionar el sistema de rutas:*/
-
 const express = require ('express');
+const router = express.Router(); // Renombramos a 'router' para mayor claridad
+const verificarRol = require('../middlewares/autorizacion');
 
-//Dentro de una constante importamos la función mostrarUsuarios desde el controlador.
+// Importamos el controlador
 const { mostrarUsuarios } = require ('../controladores/mostrarUsuariosControlador.js');
 
-//Creamos el objeto que gestionará las rutas (ENRUTADOR) con una finalidad específica:
-const ruta = express.Router();
 
-/*Definimos una ruta según la finalidad, en este caso es una ruta de tipo Get que obtiene los datos desde la DB
-• URL para acceder a la ruta '/usuarios2025' y mostrarUsuarios_es la función que se ejecutará al acceder a 
-a la ruta*/
-ruta.get('/usuariosBiblioteca', mostrarUsuarios);
+/*Definimos una ruta de tipo Get que obtiene los datos desde la DB
+• Añadimos el middleware 'autenticacion' para proteger la ruta*/
+router.get('/usuariosBiblioteca', verificarRol(['administrador', 'registrador', 'profesor', 'estudiante']), mostrarUsuarios);
 
-//Exportamos la función para poder acceder desde otros lugares del proyecto.
-module.exports = ruta;
+//Exportamos el router para poder acceder desde otros lugares del proyecto.
+module.exports = router;

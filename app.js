@@ -7,29 +7,33 @@ const app = express(); //Instancia para que el servidor maneje rutas y peticione
 const PORT = process.env.PORT || 4000; // Utilizará el puerto asignado por render ó el puerto local 5000 (SERVIDOR).
 const cors = require('cors'); // Importa el paquete 'cors'
 
+//Middlewares
 // Habilita CORS para todas las solicitudes
 app.use(cors());
+
+// Middleware para que Express pueda leer cuerpos de solicitud en formato JSON(Uso con metodos POST y GET)
+app.use(express.json());
+
+/*Importación de rutas comprobadas para servir - Inicio*/
+//Importamos la ruta dentro de una constante.
+const mostrarUsuariosRuta = require ('./rutas/mostrarUsuariosRuta.js');//(DATOS)
+const autenticarUsuarioRuta = require('./rutas/autenticarUsuarioRuta'); //Para Logear
+/*Importación de rutas comprobadas para servir - Fin*/
+
 
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - INICIO---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - FIN <<<<<<<<<<<<<<<<<<<<<-----------------*/
 
 
-/*Importación de rutas comprobadas para servir - Inicio*/
-//Importamos la ruta dentro de una constante.
-const mostrarUsuariosRuta = require ('./rutas/mostrarUsuariosRuta.js');//(DATOS)
-/*Importación de rutas comprobadas para servir - Fin*/
-
-
 /* Rutas servidas Comprobadas- Inicio*/
 app.use('/mostrarUsuarios', mostrarUsuariosRuta); //localhost:4000/mostrarUsuarios/usuariosBiblioteca-(DATOS)
+app.use('/autenticarUsuarios', autenticarUsuarioRuta);//Para el login
 /* Rutas Servidas Comprobadas - Fin*/
 
 
-
-
-
 /*------ INICIO SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS ------------------------------------->>>>>>>>>>>>>>*/
+
 /*------ FIN SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS <<<<<<<<<<<<<<<---------------------------------------*/
 
 
