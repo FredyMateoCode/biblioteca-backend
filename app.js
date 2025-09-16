@@ -22,7 +22,7 @@ const autenticarUsuarioRuta = require('./rutas/autenticarUsuarioRuta'); //Para L
 
 
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - INICIO---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
+const mostrarLibrosRuta = require ('./rutas/mostrarLibrosRuta.js');//(DATOS)
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - FIN <<<<<<<<<<<<<<<<<<<<<-----------------*/
 
 
@@ -33,7 +33,7 @@ app.use('/autenticarUsuarios', autenticarUsuarioRuta);//Para el login
 
 
 /*------ INICIO SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS ------------------------------------->>>>>>>>>>>>>>*/
-
+app.use('/mostrarLibros', mostrarLibrosRuta); //localhost:4000/mostrarLibros/librosBiblioteca-(DATOS)
 /*------ FIN SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS <<<<<<<<<<<<<<<---------------------------------------*/
 
 
