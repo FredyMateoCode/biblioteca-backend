@@ -16,24 +16,30 @@ app.use(express.json());
 
 /*Importación de rutas comprobadas para servir - Inicio*/
 //Importamos la ruta dentro de una constante.
-const mostrarUsuariosRuta = require ('./rutas/mostrarUsuariosRuta.js');//(DATOS)
+const mostrarUsuariosRuta = require ('./rutas/mostrarUsuariosRuta.js');//(DATOS)}
 const autenticarUsuarioRuta = require('./rutas/autenticarUsuarioRuta'); //Para Logear
+const mostrarLibrosRuta = require ('./rutas/mostrarLibrosRuta.js');//(DATOS)
+const mostrarEstudiantesRuta = require ('./rutas/mostrarEstudiantesRuta.js');//(DATOS)
 /*Importación de rutas comprobadas para servir - Fin*/
 
 
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - INICIO---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-const mostrarLibrosRuta = require ('./rutas/mostrarLibrosRuta.js');//(DATOS)
+const mostrarProfesoresRuta = require ('./rutas/mostrarProfesoresRuta.js');//(DATOS)
+const mostrarPrestamosRuta = require ('./rutas/mostrarPrestamosRuta.js');
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - FIN <<<<<<<<<<<<<<<<<<<<<-----------------*/
 
 
 /* Rutas servidas Comprobadas- Inicio*/
 app.use('/mostrarUsuarios', mostrarUsuariosRuta); //localhost:4000/mostrarUsuarios/usuariosBiblioteca-(DATOS)
 app.use('/autenticarUsuarios', autenticarUsuarioRuta);//Para el login
+app.use('/mostrarLibros', mostrarLibrosRuta); //localhost:4000/mostrarLibros/librosBiblioteca-(DATOS)
+app.use('/mostrarProfesores', mostrarProfesoresRuta); //localhost:4000/mostrarProfesores/profesoresBiblioteca-(DATOS)
 /* Rutas Servidas Comprobadas - Fin*/
 
 
 /*------ INICIO SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS ------------------------------------->>>>>>>>>>>>>>*/
-app.use('/mostrarLibros', mostrarLibrosRuta); //localhost:4000/mostrarLibros/librosBiblioteca-(DATOS)
+app.use('/mostrarEstudiantes', mostrarEstudiantesRuta); //localhost:4000/mostrarEstudiantes/estudiantesBiblioteca-(DATOS)
+app.use('/mostrarPrestamos', mostrarPrestamosRuta); //localhost:4000/mostrarPrestamos/prestamosBiblioteca
 /*------ FIN SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS <<<<<<<<<<<<<<<---------------------------------------*/
 
 
