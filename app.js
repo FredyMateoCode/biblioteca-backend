@@ -20,12 +20,15 @@ const mostrarUsuariosRuta = require ('./rutas/mostrarUsuariosRuta.js');//(DATOS)
 const autenticarUsuarioRuta = require('./rutas/autenticarUsuarioRuta'); //Para Logear
 const mostrarLibrosRuta = require ('./rutas/mostrarLibrosRuta.js');//(DATOS)
 const mostrarEstudiantesRuta = require ('./rutas/mostrarEstudiantesRuta.js');//(DATOS)
+const mostrarProfesoresRuta = require ('./rutas/mostrarProfesoresRuta.js');
+const mostrarPrestamosRuta = require ('./rutas/mostrarPrestamosRuta.js');
+const mostrarRegistrosRuta = require ('./rutas/mostrarRegistrosRuta.js');
+const registrosRuta = require('./rutas/registrosRuta'); // ✅ Importa tu archivo de rutas
 /*Importación de rutas comprobadas para servir - Fin*/
 
-
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - INICIO---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-const mostrarProfesoresRuta = require ('./rutas/mostrarProfesoresRuta.js');//(DATOS)
-const mostrarPrestamosRuta = require ('./rutas/mostrarPrestamosRuta.js');
+const editarRegistrosRutas = require ('./rutas/editarRegistroRuta.js'); // ✅ Importa la nueva ruta
+const eliminarRegistroRutas = require('./rutas/eliminarRegistroRuta.js');
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - FIN <<<<<<<<<<<<<<<<<<<<<-----------------*/
 
 
@@ -34,12 +37,16 @@ app.use('/mostrarUsuarios', mostrarUsuariosRuta); //localhost:4000/mostrarUsuari
 app.use('/autenticarUsuarios', autenticarUsuarioRuta);//Para el login
 app.use('/mostrarLibros', mostrarLibrosRuta); //localhost:4000/mostrarLibros/librosBiblioteca-(DATOS)
 app.use('/mostrarProfesores', mostrarProfesoresRuta); //localhost:4000/mostrarProfesores/profesoresBiblioteca-(DATOS)
+app.use('/mostrarRegistros', mostrarRegistrosRuta); //localhost:4000/mostrarRegistros/registrosBiblioteca
+app.use('/mostrarEstudiantes', mostrarEstudiantesRuta); //localhost:4000/mostrarEstudiantes/estudiantesBiblioteca-(DATOS)
+app.use('/mostrarPrestamos', mostrarPrestamosRuta); //localhost:4000/mostrarPrestamos/prestamosBiblioteca
+app.use('/api/registros', registrosRuta);
 /* Rutas Servidas Comprobadas - Fin*/
 
 
 /*------ INICIO SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS ------------------------------------->>>>>>>>>>>>>>*/
-app.use('/mostrarEstudiantes', mostrarEstudiantesRuta); //localhost:4000/mostrarEstudiantes/estudiantesBiblioteca-(DATOS)
-app.use('/mostrarPrestamos', mostrarPrestamosRuta); //localhost:4000/mostrarPrestamos/prestamosBiblioteca
+app.use('/api/registros', editarRegistrosRutas); // ✅ Conecta la ruta de edición
+app.use('/api', eliminarRegistroRutas);
 /*------ FIN SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS <<<<<<<<<<<<<<<---------------------------------------*/
 
 
