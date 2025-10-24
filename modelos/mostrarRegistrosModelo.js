@@ -4,7 +4,7 @@ const pool = require('../configuracion/conexion.js');
 /*Cambia la forma en que se ejecuta la consulta para usar el pool*/
 /*Nombres cambiados: */
 const obtenerRegistros = (callback) => {
-	const consulta = 'SELECT * FROM registros';
+	const consulta = 'SELECT * FROM registros ORDER BY id_reg DESC';
 	
 	// ⚠️ 1. Obtiene una conexión del pool
 	pool.getConnection((err, connection) => {

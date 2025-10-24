@@ -4,7 +4,7 @@ const pool = require('../configuracion/conexion.js');
 /*Cambia la forma en que se ejecuta la consulta para usar el pool*/
 /*Nombres cambiados: */
 const obtenerLibros = (callback) => {
-	const consulta = 'SELECT id_libro, titulo_libro, cantidad_libro, autor_libro, pais_libro, editorial_libro, edicion_libro, estado_libro FROM libros';
+	const consulta = 'SELECT id_libro, titulo_libro, cantidad_libro, autor_libro, pais_libro, editorial_libro, edicion_libro, estado_libro, img_libro FROM libros';
 	
 	// ⚠️ 1. Obtiene una conexión del pool
 	pool.getConnection((err, connection) => {

@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-const password = '3107';
+const password = '12102025';
 const saltRounds = 10; // Un número estándar para la sal
 
 bcrypt.hash(password, saltRounds, function(err, hash) {

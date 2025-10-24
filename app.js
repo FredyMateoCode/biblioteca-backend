@@ -24,11 +24,21 @@ const mostrarProfesoresRuta = require ('./rutas/mostrarProfesoresRuta.js');
 const mostrarPrestamosRuta = require ('./rutas/mostrarPrestamosRuta.js');
 const mostrarRegistrosRuta = require ('./rutas/mostrarRegistrosRuta.js');
 const registrosRuta = require('./rutas/registrosRuta'); // ✅ Importa tu archivo de rutas
+const editarRegistrosRutas = require ('./rutas/editarRegistroRuta.js'); // ✅ Importa la nueva ruta
+const eliminarRegistroRutas = require('./rutas/eliminarRegistroRuta.js');
 /*Importación de rutas comprobadas para servir - Fin*/
 
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - INICIO---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-const editarRegistrosRutas = require ('./rutas/editarRegistroRuta.js'); // ✅ Importa la nueva ruta
-const eliminarRegistroRutas = require('./rutas/eliminarRegistroRuta.js');
+const filtrarEstudianteDniRuta = require('./rutas/filtrarEstudianteDniRuta.js');
+
+const mostrarPreguntasRuta = require('./rutas/mostrarPreguntasRuta.js');
+const evaluarCuestionarioRuta = require('./rutas/evaluarCuestionarioRuta.js');
+const listarCuestionarios = require('./rutas/listarCuestionariosRutas.js');
+const probarDatosRuta = require('./rutas/probarDatosRuta.js');
+
+const mostrarPuntajesRuta = require('./rutas/mostrarPuntajesRuta');
+
+
 /*-------------------- SECCIÓN DE PRUEBA - IMPORTACIONES - FIN <<<<<<<<<<<<<<<<<<<<<-----------------*/
 
 
@@ -41,12 +51,21 @@ app.use('/mostrarRegistros', mostrarRegistrosRuta); //localhost:4000/mostrarRegi
 app.use('/mostrarEstudiantes', mostrarEstudiantesRuta); //localhost:4000/mostrarEstudiantes/estudiantesBiblioteca-(DATOS)
 app.use('/mostrarPrestamos', mostrarPrestamosRuta); //localhost:4000/mostrarPrestamos/prestamosBiblioteca
 app.use('/api/registros', registrosRuta);
+app.use('/api/registros', editarRegistrosRutas); // ✅ Conecta la ruta de edición
+app.use('/api', eliminarRegistroRutas);
 /* Rutas Servidas Comprobadas - Fin*/
 
 
 /*------ INICIO SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS ------------------------------------->>>>>>>>>>>>>>*/
-app.use('/api/registros', editarRegistrosRutas); // ✅ Conecta la ruta de edición
-app.use('/api', eliminarRegistroRutas);
+app.use('/api', filtrarEstudianteDniRuta);
+
+app.use('/api', mostrarPreguntasRuta); // Monta las rutas de las preguntas bajo '/api'
+app.use('/api', evaluarCuestionarioRuta);
+app.use('/api', listarCuestionarios);
+app.use('/api/evaluacion', probarDatosRuta);
+
+app.use('/api', mostrarPuntajesRuta);
+
 /*------ FIN SECCIÓN DE PRUEBAS - USO DE RUTAS Y OTROS <<<<<<<<<<<<<<<---------------------------------------*/
 
 
